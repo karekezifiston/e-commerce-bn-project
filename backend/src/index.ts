@@ -1,8 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import productRouter from "./routes/productRoutes";
+import productRouter from "./routes/productRoute";
 import cartRouter from "./routes/cartRoute";
+import authRoute from "./routes/authRoute"
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use("/uploads", express.static("uploads"));
 // Routes
 app.use("/products", productRouter);
 app.use("/cart", cartRouter); // <-- now it's correct, after app is declared
+app.use("/api/user", authRoute);
 
 // Connect MongoDB
 mongoose.connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/ecommerce")
