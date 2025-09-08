@@ -1,5 +1,6 @@
 
 import { dummyShowsData } from "../assets/assets";  // no extension needed
+import FoodCard from "../components/FoodCard";
 
 
 const Food = () => {
@@ -7,8 +8,8 @@ const Food = () => {
     <div className="relative px-4 mt-12 mb-[15rem] min-h-[80vh] overflow-hidden">
       <h1 className="text-xl font-medium my-4 text-start pl-[10%]">Now Showing</h1>
       <div className="flex flex-wrap justify-center gap-8">
-        {dummyShowsData.map((venue) => (
-          <VenueCard venue={venue} key={venue._id} />
+        {dummyShowsData.map((food) => (
+          <FoodCard food={food} key={food._id} />
         ))}
       </div>
     </div>

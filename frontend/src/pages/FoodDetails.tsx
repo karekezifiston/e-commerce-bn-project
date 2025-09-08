@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { dummyShowsData } from '../assets/assets';
 import { Heart, PlayCircleIcon, StarIcon } from 'lucide-react';
-import VenueCard from '../components/FoodCard';
+import FoodCard from '../components/FoodCard';
 
-// Define a type for your venue data
-interface Venue {
+// Define a type for your Food data
+interface Food {
   _id: string;
   title: string;
   poster_path: string;
@@ -18,12 +18,12 @@ interface Venue {
 const FoodDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const [show, setShow] = useState<{ venue: Venue } | null>(null);
+  const [show, setShow] = useState<{ food: Food } | null>(null);
 
   const getShow = async () => {
-    const found = dummyShowsData.find((item: Venue) => item._id === id);
+    const found = dummyShowsData.find((item: Food) => item._id === id);
     if (found) {
-      setShow({ venue: found });
+      setShow({ food: found });
     }
   };
 
@@ -35,19 +35,19 @@ const FoodDetails = () => {
     <div className="px-6 pt-30">
       <div className="flex flex-col md:flex-row gap-8 max-w-[1200px] mx-auto">
         <img
-          src={show.venue.poster_path}
+          src={show.food.poster_path}
           alt=""
           className="max-w-[280px] rounded-xl object-cover mx-auto"
         />
         <div className="relative flex flex-col gap-4">
           <p className="text-[#b5b5b5] font-bold uppercase">ENGLISH</p>
-          <h1 className="font-semibold max-w-[400px] text-2xl">{show.venue.title}</h1>
+          <h1 className="font-semibold max-w-[400px] text-2xl">{show.food.title}</h1>
           <div className="flex items-center gap-2 text-[#bbb]">
             <StarIcon className="text-white fill-white/80 w-5 h-5" />
-            {show.venue.vote_average.toFixed(1)} User Rating
+            {show.food.vote_average.toFixed(1)} User Rating
           </div>
           <p className="text-[#999] text-sm leading-relaxed max-w-[600px]">
-            {show.venue.overview}
+            {show.food.overview}
           </p>
 
           <div className="flex flex-wrap gap-4 mt-4">
@@ -59,7 +59,7 @@ const FoodDetails = () => {
               href="#dateSelect"
               className="flex items-center gap-2 px-8 py-3 text-sm bg-[#ededed] text-[#585858] rounded-lg hover:bg-white/60 transition"
             >
-              Book Venue
+              Book 
             </a>
             <button className="bg-[#444] p-2 rounded-lg cursor-pointer">
               <Heart className="w-5 h-5 text-white" />
@@ -71,8 +71,8 @@ const FoodDetails = () => {
       {/* SUGGESTED VENUES */}
       <p className="text-lg font-medium mt-16 mb-4">You May Also Like</p>
       <div className="flex flex-wrap gap-8 justify-center">
-        {dummyShowsData.slice(0, 5).map((venue) => (
-          <VenueCard key={venue._id} venue={venue} />
+        {dummyShowsData.slice(0, 5).map((food) => (
+          <FoodCard key={food._id} food={food} />
         ))}
       </div>
 
@@ -81,7 +81,7 @@ const FoodDetails = () => {
         <button
           className="px-8 py-3 text-sm bg-white text-black rounded-lg hover:bg-white/60 transition"
           onClick={() => {
-            navigate('/venues');
+            navigate('/food');
             scrollTo(0, 0);
           }}
         >

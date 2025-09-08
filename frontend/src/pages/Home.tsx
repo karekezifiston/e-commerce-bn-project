@@ -17,7 +17,7 @@ const Home = () => {
 
   if (!storeContext) return null; // context fallback
 
-  const { cartItems, food_list, addToCart, removeFromCart } = storeContext;
+  const { cartItems, food_list,  removeFromCart } = storeContext;
 
   // Calculate total count in cart
   const cartCount = Object.values(cartItems).reduce((total, num) => total + num, 0);

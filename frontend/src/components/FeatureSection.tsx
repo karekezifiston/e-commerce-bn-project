@@ -22,7 +22,7 @@ const FeatureSection = () => {
       <div className="flex flex-wrap gap-8 mt-8 justify-center sm:justify-start">
         {dummyShowsData.map((show) => (
           <div key={show._id} className="flex-1 min-w-[220px] max-w-[280px]">
-            <FoodCard venue={show} />
+            <FoodCard food={show} />
           </div>
         ))}
       </div>
