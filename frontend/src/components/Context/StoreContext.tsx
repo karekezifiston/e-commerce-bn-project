@@ -1,24 +1,43 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect} from "react";
 import { dummyShowsData } from "../../assets/assets";
 
+// 1️⃣ Define types
+interface FoodItem {
+  _id: string;
+  title: string;
+  price: number;
+  location: string;
+  backdrop_path: string;
+}
 
-export const StoreContext = createContext(null);
+interface StoreContextType {
+  food_list: FoodItem[];
+  cartItems: Record<string, number>;
+  addToCart: (itemId: string) => void;
+  removeFromCart: (itemId: string) => void;
+  getTotalCartAmount: () => number;
+}
 
-const StoreContextProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState({});
-  const [food_list, setFoodList] = useState(dummyShowsData); // use local data
+interface StoreContextProviderProps {
+  children: ReactNode;
+}
+
+// 2️⃣ Create context with proper type
+export const StoreContext = createContext<StoreContextType | null>(null);
+
+const StoreContextProvider = ({ children }: StoreContextProviderProps) => {
+  const [cartItems, setCartItems] = useState<Record<string, number>>({});
+  const [food_list, setFoodList] = useState<FoodItem[]>(dummyShowsData);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Add to cart
-  const addToCart = (itemId) => {
+  const addToCart = (itemId: string) => {
     setCartItems((prev) => ({
       ...prev,
       [itemId]: prev[itemId] ? prev[itemId] + 1 : 1,
     }));
   };
 
-  // Remove from cart
-  const removeFromCart = (itemId) => {
+  const removeFromCart = (itemId: string) => {
     setCartItems((prev) => {
       const newCount = (prev[itemId] || 0) - 1;
       if (newCount <= 0) {
@@ -30,7 +49,6 @@ const StoreContextProvider = ({ children }) => {
     });
   };
 
-  // Get total cart amount
   const getTotalCartAmount = () => {
     let totalAmount = 0;
     for (const itemId in cartItems) {
@@ -41,16 +59,14 @@ const StoreContextProvider = ({ children }) => {
     return totalAmount;
   };
 
-  // Simulate loading (optional)
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 300); // fake load delay
+    const timer = setTimeout(() => setIsLoading(false), 300);
     return () => clearTimeout(timer);
   }, []);
 
-  const contextValue = {
+  const contextValue: StoreContextType = {
     food_list,
     cartItems,
-    setCartItems,
     addToCart,
     removeFromCart,
     getTotalCartAmount,

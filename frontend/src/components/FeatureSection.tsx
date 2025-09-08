@@ -1,6 +1,6 @@
 
 import { useNavigate } from 'react-router-dom';
-import { dummyShowsData } from '../assets/assets';
+import { dummyShowsData } from "../../assets/assets";
 // ✅ Correct import
 import FoodCard from './FoodCard';  // relative path to FoodCard.jsx
 

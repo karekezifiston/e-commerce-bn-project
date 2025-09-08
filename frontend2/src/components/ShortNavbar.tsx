@@ -12,7 +12,7 @@ const ShortNavbar = () => {
       </div>
       
       {/* Right side */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-8">
         <p className="flex items-center gap-1">
           <FaUser className="text-black/50 bla" /> WELCOME TO OUR STORE!
         </p>
