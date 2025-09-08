@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { dummyShowsData } from "../../assets/assets.js";
+import { dummyShowsData } from "../../assets/assets";
 
 
 export const StoreContext = createContext(null);

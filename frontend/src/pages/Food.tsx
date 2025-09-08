@@ -1,6 +1,5 @@
-import React from 'react';
+
 import { dummyShowsData } from "../assets/assets";  // no extension needed
-import FoodCard from "../components/FoodCard";     // no extension needed
 
 
 const Food = () => {

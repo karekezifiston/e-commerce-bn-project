@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+
 import { useNavigate } from 'react-router-dom';
 import { dummyShowsData } from '../assets/assets';
 // ✅ Correct import
