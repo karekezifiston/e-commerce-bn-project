@@ -1,4 +1,5 @@
-import { createContext, useState, useEffect} from "react";
+import { createContext, useState, useEffect } from "react";
+import type { ReactNode } from "react";
 import { dummyShowsData } from "../../assets/assets";
 
 // 1️⃣ Define types
@@ -22,12 +23,12 @@ interface StoreContextProviderProps {
   children: ReactNode;
 }
 
-// 2️⃣ Create context with proper type
+// 2️⃣ Create context
 export const StoreContext = createContext<StoreContextType | null>(null);
 
 const StoreContextProvider = ({ children }: StoreContextProviderProps) => {
   const [cartItems, setCartItems] = useState<Record<string, number>>({});
-  const [food_list, setFoodList] = useState<FoodItem[]>(dummyShowsData);
+  const [food_list] = useState<FoodItem[]>(dummyShowsData); // no setter needed
   const [isLoading, setIsLoading] = useState(true);
 
   const addToCart = (itemId: string) => {
@@ -80,11 +81,7 @@ const StoreContextProvider = ({ children }: StoreContextProviderProps) => {
     );
   }
 
-  return (
-    <StoreContext.Provider value={contextValue}>
-      {children}
-    </StoreContext.Provider>
-  );
+  return <StoreContext.Provider value={contextValue}>{children}</StoreContext.Provider>;
 };
 
 export default StoreContextProvider;
