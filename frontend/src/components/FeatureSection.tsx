@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 // ✅ Correct import
 import FoodCard from './FoodCard';  // relative path to FoodCard.jsx
-import { dummyShowsData } from '../assets/assets';
+import { dummyShowsData } from '../../public/assets/assets';
 
 
 const FeatureSection = () => {

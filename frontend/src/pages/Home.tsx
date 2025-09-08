@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import FeatureSection from "../components/FeatureSection";
-import cartImage from "../assets/cake-cart.png";
+import cartImage from "../../public/assets/cake-cart.png";
 import { StoreContext } from "../components/Context/StoreContext";
 
 // 1️⃣ Define a type for the food items (same as context)

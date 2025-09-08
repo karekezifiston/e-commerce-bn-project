@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
-import { dummyShowsData } from "../../assets/assets";
+import { dummyShowsData } from "../../../public/assets/assets";
 
 // 1️⃣ Define types
 interface FoodItem {

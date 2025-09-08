@@ -1,5 +1,5 @@
 
-import { dummyShowsData } from "../assets/assets";  // no extension needed
+import { dummyShowsData } from "../../public/assets/assets";  // no extension needed
 import FoodCard from "../components/FoodCard";
 
 
