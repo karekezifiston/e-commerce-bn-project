@@ -68,7 +68,7 @@ const FoodDetails = () => {
         </div>
       </div>
 
-      {/* SUGGESTED VENUES */}
+      {/* SUGGESTED Food */}
       <p className="text-lg font-medium mt-16 mb-4">You May Also Like</p>
       <div className="flex flex-wrap gap-8 justify-center">
         {dummyShowsData.slice(0, 5).map((food) => (
