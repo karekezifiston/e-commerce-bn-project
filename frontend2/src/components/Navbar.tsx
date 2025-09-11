@@ -1,6 +1,9 @@
-import React, { useState, ChangeEvent } from "react";
-import { FaUser } from "react-icons/fa";
+import React, { useState } from "react";
+import type { ChangeEvent } from "react"; // ✅ type-only importimport { FiUser, FiHeart, FiShoppingBag } from "react-icons/fi";
+import { FiUser, FiHeart, FiShoppingBag } from "react-icons/fi";
 import logo from "../assets/logo.png";
+import { FaSearch } from "react-icons/fa";
+
 
 const Navbar: React.FC = () => {
   // State for search input
@@ -30,10 +33,10 @@ const Navbar: React.FC = () => {
           type="text"
           value={search}
           onChange={handleSearchChange}
-          placeholder="Search..."
-          className="w-1/3 border border-gray-300  border-r-0 px-4 py-2 focus:outline-none  focus:ring-gray-300"
+          placeholder="Search for products,categories,brands,sku..."
+          className="w-1/3 border border-gray-300  border-r-0 px-4 py-2 h-10 focus:outline-none  focus:ring-gray-300"
         />
-                <select
+        <select
           value={category}
           onChange={handleCategoryChange}
           className="border border-gray-300  px-2 py-2  focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -44,16 +47,45 @@ const Navbar: React.FC = () => {
           <option value="hotels">Hotels</option>
           <option value="restaurants">Restaurants</option>
         </select>
+        <button className="bg-black px-5 h-10 ">
+          <FaSearch className="text-amber-300 text-xl font-light" />
+        </button>
       </div>
 
       {/* User Info */}
-      <div className="flex items-center gap-3">
-        <FaUser className="text-black text-xl" />
-        <p className="text-gray-700">
-          Hello,
-          <br />
-          SIGN IN
-        </p>
+      <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1">
+          <FiUser className="text-gray-700 text-2xl" />
+          <p className="text-gray-700 text-sm">
+            Hello,
+            <br />
+            <span className="font-medium">SIGN IN</span>
+          </p>
+        </div>
+
+        {/* Heart */}
+        <div className="relative">
+          <FiHeart className="text-gray-700 text-2xl" />
+          <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+            0
+          </span>
+        </div>
+
+        {/* Shopping Bag */}
+        <div className="flex items-center gap-3">
+          <div className="relative">
+            <FiShoppingBag className="text-gray-700 text-2xl" />
+            <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+              0
+            </span>
+          </div>
+          <p className="text-gray-700 text-sm">
+            Cart
+            <br />
+            <span className="font-medium">$0.00</span>
+          </p>
+        </div>
+
       </div>
     </div>
   );

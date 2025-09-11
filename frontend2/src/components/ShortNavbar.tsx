@@ -1,16 +1,17 @@
-import React from 'react';
 import { FaUser, FaRegFileAlt, FaEnvelope, FaFolder } from 'react-icons/fa';
 
 const ShortNavbar = () => {
   return (
-    <div className="flex items-center bg-amber-300 justify-between px-6 text-xs py-3">
-      
+    <div className="flex items-center bg-amber-300 justify-between px-40 text-xs h-10">
+
       {/* Left side */}
       <div className="flex items-center gap-3">
-        <p>ENGLISH</p>
-        <p>$ DOLLAR (US)</p>
+        <p className="border-l border-white/30 px-4 py-3 h-10">ENGLISH</p>
+        <p className="border-l border-r border-white/30 px-4 py-3 h-10">$ DOLLAR (US)</p>
       </div>
-      
+
+
+
       {/* Right side */}
       <div className="flex items-center gap-8">
         <p className="flex items-center gap-1">
