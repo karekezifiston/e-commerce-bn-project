@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Add from './pages/Add'
 import List from './pages/List'
 import Sidebar from './components/Sidebar'
+import Statistics from './pages/Statistics'
 const App = () => {
   return (
    <>
@@ -13,6 +14,7 @@ const App = () => {
         <Route path='/' element={<Home/>}/>
         <Route path='/add' element={<Add/>}/>
         <Route path='/list' element={<List />} />
+        <Route path='/statistics' element={<Statistics />} />
       </Routes>
 
    </div>

@@ -17,7 +17,7 @@ const Home = () => {
 
   if (!storeContext) return null; // context fallback
 
-  const { cartItems, food_list,  removeFromCart } = storeContext;
+  const { cartItems, food_list, removeFromCart } = storeContext;
 
   // Calculate total count in cart
   const cartCount = Object.values(cartItems).reduce((total, num) => total + num, 0);
@@ -63,12 +63,18 @@ const Home = () => {
 
                   return (
                     <div key={item._id}>
+                                                  {/* Image */}
+                            <img
+                              src={item.backdrop_path} // <-- use the imported local image
+                              alt={item.title}
+                              className="w-12 h-12 rounded-lg object-cover"
+                            />
                       <span className="text-sm font-medium truncate text-zinc-800 text-wrap w-">
                         {item.location}
                       </span>
                       <div className="flex items-center gap-2 border-b pb-1">
                         <div className="flex flex-col flex-1">
-                          <span className="flex gap-2 text-sm text-gray-600">
+                          <span className="flex gap-2 items-center text-sm text-gray-600">
                             <span className="text-red-500 font-bold">{quantity}× </span>$
                             {parsePrice(item.price).toLocaleString()}
                             <span className="text-sm font-bold text-yellow-700">
